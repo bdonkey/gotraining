@@ -2,6 +2,7 @@
 // http://www.apache.org/licenses/LICENSE-2.0
 
 // Sample program to show the basic concept of pass by value.
+// ss 2018-01-16 Notice stack grows downwards
 package main
 
 func main() {

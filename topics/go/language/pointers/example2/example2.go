@@ -14,6 +14,7 @@ func main() {
 	println("count:\tValue Of[", count, "]\t\tAddr Of[", &count, "]")
 
 	// Pass the "address of" count.
+	// 2018-01-16 ss passing address of count - but still considered passing by value
 	increment(&count)
 
 	println("count:\tValue Of[", count, "]\t\tAddr Of[", &count, "]")
@@ -21,10 +22,13 @@ func main() {
 
 // increment declares count as a pointer variable whose value is
 // always an address and points to values of type int.
+// ss 2018-01-16 *int is a type, not an operator. All types get their pointer type automatically
 //go:noinline
 func increment(inc *int) {
 
 	// Increment the "value of" count that the "pointer points to".
+	// ss 2018-01-16 here the * is an deferencing operator
+	// allows this function to change memory in another function stack frame
 	*inc++
 	println("inc:\tValue Of[", inc, "]\tAddr Of[", &inc, "]\tValue Points To[", *inc, "]")
 }
